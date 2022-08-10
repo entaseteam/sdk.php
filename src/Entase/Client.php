@@ -29,7 +29,7 @@ class Client
 
     private function _Query($endpoint, $data, $method)
     {
-        $url = strpos($endpoint, 'https://') !== false ? $endpoint : Env::APIURL.$endpoint;
+        $url = strpos($endpoint, 'https://') !== false ? $endpoint : Env::$APIURL.$endpoint;
         if ($method == 'get' && $data != null)
         {
             $glue = strpos($endpoint, '?') !== false ? '&' : '?';
@@ -44,7 +44,7 @@ class Client
                 curl_setopt( $ch, CURLOPT_POSTFIELDS, self::_Arr2HTTP($data));
         }
 
-        if (Env::DebugMode)
+        if (Env::$DebugMode)
         {
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
