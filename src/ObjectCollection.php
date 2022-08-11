@@ -1,6 +1,6 @@
 <?php
 
-namespace Entase;
+namespace Entase\SDK;
 
 use \IteratorAggregate;
 use \Traversable;

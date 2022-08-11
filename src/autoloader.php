@@ -1,43 +1,32 @@
 <?php
 
-namespace EntaseSDK;
+namespace Entase\SDK;
 
 function AutoLoader($className) 
 {
-    if (strpos($className, 'Entase\\') !== 0)
+    if (strpos($className, 'Entase\\SDK\\') !== 0)
         return;
+
+    $calledClass = $className;
+    $className = str_replace('Entase\\SDK\\', '', $className);
 
     $fileName = '';
     $namespace = '';
 
-    // Sets the include path as the "src" directory
     $includePath = dirname(__FILE__).DIRECTORY_SEPARATOR;
-
     if (false !== ($lastNsPos = strripos($className, '\\'))) {
         $namespace = substr($className, 0, $lastNsPos);
         $className = substr($className, $lastNsPos + 1);
         $fileName = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
     }
+    
     $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
-    $fullFileName = $includePath . DIRECTORY_SEPARATOR . $fileName;
-    $fullFileNameEX = $includePath . DIRECTORY_SEPARATOR .'ThirdParty/'.$fileName;
+    $fullFilePath = $includePath.DIRECTORY_SEPARATOR.$fileName;
 
-    $pos = strpos($fileName, '/');
-    $fileName_src = ($pos !== false) ? substr_replace($fileName, '/src/', $pos, 1) : 'src/'.$fileName;
-    $fullFileNameEX_SRC = $includePath . DIRECTORY_SEPARATOR .'ThirdParty/'.$fileName_src;
-
-    if (file_exists($fullFileName)) {
-        require_once $fullFileName;
+    if (file_exists($fullFilePath)) {
+        require_once $fullFilePath;
     }
-    elseif (file_exists($fullFileNameEX)) {
-        require_once $fullFileNameEX;
-    }
-    elseif (file_exists($fullFileNameEX_SRC)) {
-        require_once $fullFileNameEX_SRC;
-    }
-    else {
-        die('Class "'.$className.'" does not exist.');
-    }
+    else die('Class "'.$calledClass.'" does not exist.');
 }
 
-\spl_autoload_register('EntaseSDK\AutoLoader'); // Registers the autoloader
+\spl_autoload_register('Entase\\SDK\\AutoLoader'); // Registers the autoloader

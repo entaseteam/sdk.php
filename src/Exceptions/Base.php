@@ -1,6 +1,6 @@
 <?php
 
-namespace Entase\Exceptions;
+namespace Entase\SDK\Exceptions;
 
 class Base extends \Exception
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Entase\Endpoints;
+namespace Entase\SDK\Endpoints;
 
-class Productions extends \Entase\Endpoint
+class Productions extends \Entase\SDK\Endpoint
 {
     public function __construct($client)
     {

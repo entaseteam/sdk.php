@@ -1,5 +1,5 @@
 <?php
 
-namespace Entase\Exceptions;
+namespace Entase\SDK\Exceptions;
 
 class API extends Base {}

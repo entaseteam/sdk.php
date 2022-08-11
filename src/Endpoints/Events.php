@@ -1,8 +1,8 @@
 <?php
 
-namespace Entase\Endpoints;
+namespace Entase\SDK\Endpoints;
 
-class Events extends \Entase\Endpoint
+class Events extends \Entase\SDK\Endpoint
 {
     public function __construct($client)
     {
