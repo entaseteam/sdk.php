@@ -22,7 +22,7 @@ require_once('/path/to/entase/sdk.php/autoloader.php');
 Initialize the Client with your secret key and you're ready to go.
 
 ```php
-$entase = new \Entase\Client('cask_MTY2MDA2MDE3NQabNjJmMjgyMGYyZDAyMTQwNGJhMGYzNWQxZWhnbGxxRkppV3ZP');
+$entase = new \Entase\SDK\Client('cask_MTY2MDA2MDE3NQabNjJmMjgyMGYyZDAyMTQwNGJhMGYzNWQxZWhnbGxxRkppV3ZP');
 $upcoming = $entase->events->GetAll([
   'limit' => 10,
   'filter' => [
@@ -64,6 +64,17 @@ To handle the pagging function and extract batches from the API by yourself, you
 ```php
 // Getting all events after certain ID. E.g. the next result set.
 $events = $entase->events->GetAll(['limit' => 100, 'after' => '6002d051ce1b73294c3aeacc']);
+```
+
+## Error fallback
+On API errors the Client object will throw exception. Consider catching them so you can provide smooth user flow.
+```php
+try {
+    $productions = $entase->productions->GetAll(['limit' => 10]);
+}
+catch (\Entase\SDK\Exceptions\Base $ex) { 
+    // Fallback code 
+}
 ```
 
 ## Supported Endpoints
