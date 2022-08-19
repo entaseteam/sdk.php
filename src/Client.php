@@ -15,6 +15,7 @@ class Client
         $this->_secretKey = $secretKey;
         $this->productions = new Endpoints\Productions($this);
         $this->events = new Endpoints\Events($this);
+        $this->photos = new Endpoints\Photos($this);
     }
 
     public function GET($endpoint, $data=null)
@@ -57,7 +58,6 @@ class Client
         curl_setopt( $ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer '.$this->_secretKey]);
 
         $response = curl_exec( $ch );
-        
         $result = json_decode($response);
         $error = curl_errno($ch) ? curl_error($ch) : null;
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -95,7 +95,7 @@ class Client
         {
             if (is_array($value))
                 $str .= self::_Arr2HTTP($value, $wrapPrefix != '' ? $wrapPrefix.'['.$key.']' : $key.'[');
-            else $str .= $wrapPrefix.$key.($wrapPrefix != '' ? ']' : '').'='.urlencode($value);
+            else $str .= $wrapPrefix.$key.($wrapPrefix != '' ? ']' : '').'='.urlencode($value).'&';
         }
 
         return $str;
