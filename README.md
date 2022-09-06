@@ -1,9 +1,9 @@
 # PHP Development Kit for Entase
-This library provdes easy access to Entase API for PHP language.
-
 ![GitHub release (latest by date)](https://img.shields.io/badge/php-%3E%3D7.4-blue)
 ![GitHub release (latest by date)](https://img.shields.io/badge/production-ready-green)
 ![GitHub release (latest by date)](https://img.shields.io/badge/license-MIT-blue)
+
+This library provdes easy access to Entase API for PHP language.
 
 ## Requirements and dependencies
 PHP 7.4 or later with following extensions enabled:
