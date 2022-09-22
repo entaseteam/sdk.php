@@ -90,3 +90,6 @@ catch (\Entase\SDK\Exceptions\Base $ex) {
 
 ### GET /events/{id} 
 ``$entase->events->GetByID($id)``
+
+### GET /photos/object/{objref} 
+``$entase->photos->GetByObject($objref, $data=[])``
