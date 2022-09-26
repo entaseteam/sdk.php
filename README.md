@@ -5,6 +5,8 @@
 
 This library provdes easy access to Entase API for PHP language.
 
+![Banner](banner.jpg)
+
 ## Requirements and dependencies
 PHP 7.4 or later with following extensions enabled:
 -   [`curl`](https://secure.php.net/manual/en/book.curl.php)
