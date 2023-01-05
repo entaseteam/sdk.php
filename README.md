@@ -56,7 +56,7 @@ while ($events->HasMore())
   }
 }
 ```
-The ``HasMore`` method will automatically lookup and extract additional batch from the API. However use it with caution! Consider performance and try to limit your API request.
+The ``HasMore`` method will automatically lookup and extract additional batch from the API. However use it with caution! Consider performance and try to limit your API requests.
 
 You can also access the events collection manualy by ``$events->data``.
 
