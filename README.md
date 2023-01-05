@@ -3,7 +3,7 @@
 ![GitHub release (latest by date)](https://img.shields.io/badge/production-ready-green)
 ![GitHub release (latest by date)](https://img.shields.io/badge/license-MIT-blue)
 
-This library provdes easy access to Entase API for PHP language.
+This library provides easy access to Entase API for PHP language.
 
 ![Banner](banner.jpg)
 
