@@ -93,5 +93,11 @@ catch (\Entase\SDK\Exceptions\Base $ex) {
 ### GET /events/{id} 
 ``$entase->events->GetByID($id)``
 
+### GET /partners/{id} 
+``$entase->partners->GetByID($id)``
+
+### GET /partners/me 
+``$entase->partners->Me()``
+
 ### GET /photos/object/{objref} 
 ``$entase->photos->GetByObject($objref, $data=[])``
